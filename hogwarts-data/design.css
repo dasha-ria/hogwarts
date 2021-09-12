@@ -13,15 +13,20 @@ p {
 }
 
 .hogwarts-info-wrap {
+  margin-top: 2vw;
   display: flex;
   gap: 2vw;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hogwarts-info-box {
   background-color: #616161;
   border-radius: 5px;
-  width: 11vw;
-  height: 11vh;
+  width: 10vw;
+  min-width: 140px;
+  height: 10vh;
+  min-height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +46,128 @@ p {
   font-weight: 700;
   font-size: 30px;
   margin-bottom: 20px;
+}
+
+.studentlist-wrap {
+  margin-top: 3vw;
+  margin-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.student-box {
+  width: 60vw;
+  height: 7vh;
+  min-height: 50px;
+  min-width: 500px;
+  background-color: #616161;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vw;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.student-pic {
+  width: 5%;
+  height: auto;
+  margin-left: 2vw;
+}
+
+.student-name,
+.student-house {
+  font-size: 20px;
+}
+
+.student-house {
+  margin-left: 30vw;
+}
+
+.student-category-list {
+  display: flex;
+  gap: 2vw;
+  margin-top: 5vw;
+  margin-left: 7vw;
+}
+.category-line-under {
+  background-color: #616161;
+  width: 60vw;
+  height: 1px;
+  margin-left: 2vw;
+}
+
+.active-category {
+  color: #b794f6;
+  position: relative;
+}
+
+.active-category::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #b794f6;
+  border-radius: 0.1rem;
+  bottom: 0;
+  left: 0;
+  top: 2.1rem;
+}
+
+.search-bar {
+  background-color: #ffffff;
+  width: 20vw;
+  height: 5vh;
+  box-shadow: 0px 3px 6px rgb(0, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vw;
+  margin: 0;
+}
+
+.search-icon {
+  width: 2vw;
+  height: auto;
+  margin-left: 1vw;
+}
+
+.search-text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.category-search-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 10vw;
+}
+
+.modal-wrap {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20vw;
+  left: 25%;
+}
+
+.modal-box {
+  background-color: #fafafa;
+  width: 50vw;
+  height: 50vh;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px 20px black;
+}
+
+.modal-student-pic {
+  width: 5vw;
+  height: auto;
+}
+
+.modal-student-name {
+  color: black;
+  font-size: 25px;
 }
