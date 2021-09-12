@@ -164,6 +164,7 @@ p {
   border-radius: 10px;
   /* margin-top: 20px; */
   box-shadow: 0px 0px 10px 20px black;
+  position: relative;
 }
 
 .pic-name-wrap {
@@ -182,6 +183,7 @@ p {
 .modal-student-name {
   color: black;
   font-size: 25px;
+  margin: 0;
 }
 
 .modal-info {
@@ -204,4 +206,47 @@ p {
   display: flex;
   gap: 12vw;
   align-items: center;
+}
+
+.close-button {
+  width: 2vw;
+  height: auto;
+  top: 1vw;
+  right: 1vw;
+  position: absolute;
+}
+
+.modal-button-wrap {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+.expel-button {
+  border: none;
+  width: 130px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #7a1143;
+  color: white;
+}
+
+.prefect-button {
+  border: none;
+  width: 130px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #0c277a;
+  color: white;
+}
+
+.inquisitorial-button {
+  border: none;
+  width: 130px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #3c6104;
+  color: white;
 }
