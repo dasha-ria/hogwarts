@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #212121;
+}
+
+p {
+  color: white;
+}
+
+.hogwarts-info-wrap {
+  display: flex;
+  gap: 2vw;
+}
+
+.hogwarts-info-box {
+  background-color: #616161;
+  border-radius: 5px;
+  width: 11vw;
+  height: 11vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1vw;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hogwarts-info-title {
+  margin: 0;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.hogwarts-info-number {
+  margin: 0;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
