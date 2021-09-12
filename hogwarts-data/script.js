@@ -103,3 +103,6 @@ function associateImage(student) {
     image: imgSrc,
   };
 }
+
+//The student list has now been "cleaned", and the images have been associated with the students
+//Now I need to do sorting, filtering, searching..
