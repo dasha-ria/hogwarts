@@ -51,13 +51,13 @@
         <div class="student-category-wrap">
           <div class="student-category-line-wrap">
             <div class="student-category-list">
-              <p class="category active-category">All</p>
-              <p class="category">Slytherin</p>
-              <p class="category">Hufflepuff</p>
-              <p class="category">Ravenclaw</p>
-              <p class="category">Gryffindor</p>
-              <p class="category">Expelled</p>
-              <p class="category">Active students</p>
+              <p class="category active-category filter-all">All</p>
+              <p class="category filter-slytherin">Slytherin</p>
+              <p class="category filter-hufflepuff">Hufflepuff</p>
+              <p class="category filter-ravenclaw">Ravenclaw</p>
+              <p class="category filter-gryffindor">Gryffindor</p>
+              <p class="category filter-expelled">Expelled</p>
+              <p class="category filter-active">Active students</p>
             </div>
             <div class="category-line-under"></div>
           </div>
@@ -78,27 +78,25 @@
         <p class="house-sort">HOUSE</p>
       </div>
 
-      <div class="studentlist-wrap">
-        <div class="student-box">
-          <img class="student-pic" src="images/parkinson_p.png" />
-          <p class="student-firstname">Pansy</p>
-          <p class="student-lastname">Parkinson</p>
-          <p class="student-house">Slytherin</p>
+      <div class="student-template-wrap"></div>
+      <template class="student-template">
+        <div class="studentlist-wrap">
+          <div class="student-box">
+            <img class="student-pic" src="images/parkinson_p.png" />
+            <p class="student-firstname">Pansy</p>
+            <p class="student-lastname">Parkinson</p>
+            <p class="student-house">Slytherin</p>
+          </div>
         </div>
-        <div class="student-box">
-          <img class="student-pic" src="images/parkinson_p.png" />
-          <p class="student-firstname">Pansy</p>
-          <p class="student-lastname">Parkinson</p>
-          <p class="student-house">Slytherin</p>
-        </div>
-      </div>
+      </template>
 
-      <!-- <div class="modal-wrap">
+      <div class="modal-wrap popuphidden">
         <div class="modal-box">
           <div class="leftinfo-crestright">
             <div class="pic-name-wrap">
               <img src="images/parkinson_p.png" class="modal-student-pic" />
-              <p class="modal-student-name">Pansy Parkinson</p>
+              <p class="modal-student-firstname">A</p>
+              <p class="modal-student-lastname">B</p>
             </div>
 
             <img src="images2/slytherin-crest.svg" class="house-crest" />
@@ -132,8 +130,10 @@
             <button class="inquisitorial-button">Add to inq. squad</button>
           </div>
         </div>
-      </div> -->
+      </div>
     </main>
     <footer></footer>
   </body>
+
+  <script src="script.js"></script>
 </html>

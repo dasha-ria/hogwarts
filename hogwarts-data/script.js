@@ -1,13 +1,19 @@
+let students = [];
+
 fetch("https://petlatkea.dk/2021/hogwarts/students.json")
   .then((res) => res.json())
   // .then((data) => console.log(data))
   .then((students) => {
-    students
+    return students
       .map(trimStudents)
       .map(splitStudents)
       .map(capitalizeFix)
-      .map(associateImage)
-      .map(console.log);
+      .map(associateImage);
+    // .map(console.log);
+  })
+  .then((allstudents) => {
+    students = allstudents;
+    allstudents.forEach(showStudent);
   });
 
 function splitStudents(student) {
@@ -106,3 +112,170 @@ function associateImage(student) {
 
 //The student list has now been "cleaned", and the images have been associated with the students
 //Now I need to do sorting, filtering, searching..
+
+/**
+ * {
+ *   firstName,
+ *   lastName,
+ *   house
+ * }
+ */
+
+function filterByHouse(student, house) {
+  if (student.house === house) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function sortByHouse(a, b) {
+  if (a.house < b.house) {
+    return -1;
+  }
+  if (b.house > a.house) {
+    return 1;
+  }
+  return 0;
+}
+
+function sortByFirstName(a, b) {
+  if (a.firstname < b.firstname) {
+    return -1;
+  }
+  if (b.firstname > a.firstname) {
+    return 1;
+  }
+  return 0;
+}
+
+function sortByLastName(a, b) {
+  if (a.lastname < b.lastname) {
+    return -1;
+  }
+  if (b.lastname > a.lastname) {
+    return 1;
+  }
+  return 0;
+}
+
+// const housesort = students.sort((a, b) => sortByHouse(a, b)).reverse();
+
+function showStudent(student) {
+  const template = document.querySelector("template").content;
+  const copy = template.cloneNode(true);
+  copy.querySelector(".student-firstname").innerText = student.firstname;
+  copy.querySelector(".student-lastname").innerText = student.lastname;
+  copy.querySelector(".student-house").innerText = student.house;
+
+  copy.querySelector(".student-box").onclick = () => {
+    document.querySelector(".modal-wrap").classList.remove("popuphidden");
+    document.querySelector(".modal-student-firstname").innerText =
+      student.firstname;
+    document.querySelector(".modal-student-lastname").innerText =
+      student.lastname;
+  };
+  document.querySelector(".close-button").onclick = () => {
+    document.querySelector(".modal-wrap").classList.add("popuphidden");
+  };
+
+  document.querySelector(".student-template-wrap").appendChild(copy);
+}
+
+document.querySelector(".filter-slytherin").onclick = () => {
+  const newstudents = students.filter((student) =>
+    filterByHouse(student, "Slytherin")
+  );
+  document.querySelector(".student-template-wrap").replaceChildren();
+  newstudents.forEach(showStudent);
+};
+
+document.querySelector(".filter-hufflepuff").onclick = () => {
+  const newstudents = students.filter((student) =>
+    filterByHouse(student, "Hufflepuff")
+  );
+  document.querySelector(".student-template-wrap").replaceChildren();
+  newstudents.forEach(showStudent);
+};
+
+document.querySelector(".filter-ravenclaw").onclick = () => {
+  const newstudents = students.filter((student) =>
+    filterByHouse(student, "Ravenclaw")
+  );
+  document.querySelector(".student-template-wrap").replaceChildren();
+  newstudents.forEach(showStudent);
+};
+
+document.querySelector(".filter-gryffindor").onclick = () => {
+  const newstudents = students.filter((student) =>
+    filterByHouse(student, "Gryffindor")
+  );
+  document.querySelector(".student-template-wrap").replaceChildren();
+  newstudents.forEach(showStudent);
+};
+
+document.querySelector(".filter-all").onclick = () => {
+  document.querySelector(".student-template-wrap").replaceChildren();
+  students.forEach(showStudent);
+};
+
+let sortingBy = null;
+document.querySelector(".house-sort").onclick = () => {
+  if (sortingBy === "house:asc") {
+    const studentsorting = [...students]
+      .sort((a, b) => sortByHouse(a, b))
+      .reverse();
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "house:desc";
+  } else if (sortingBy === "house:desc") {
+    document.querySelector(".student-template-wrap").replaceChildren();
+    students.forEach(showStudent);
+    sortingBy = null;
+  } else {
+    const studentsorting = [...students].sort((a, b) => sortByHouse(a, b));
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "house:asc";
+  }
+};
+
+document.querySelector(".first-name-sort").onclick = () => {
+  if (sortingBy === "firstname:asc") {
+    const studentsorting = [...students]
+      .sort((a, b) => sortByFirstName(a, b))
+      .reverse();
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "firstname:desc";
+  } else if (sortingBy === "firstname:desc") {
+    document.querySelector(".student-template-wrap").replaceChildren();
+    students.forEach(showStudent);
+    sortingBy = null;
+  } else {
+    const studentsorting = [...students].sort((a, b) => sortByFirstName(a, b));
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "firstname:asc";
+  }
+};
+
+document.querySelector(".last-name-sort").onclick = () => {
+  if (sortingBy === "lastname:asc") {
+    const studentsorting = [...students]
+      .sort((a, b) => sortByLastName(a, b))
+      .reverse();
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "lastname:desc";
+  } else if (sortingBy === "lastname:desc") {
+    document.querySelector(".student-template-wrap").replaceChildren();
+    students.forEach(showStudent);
+    sortingBy = null;
+  } else {
+    const studentsorting = [...students].sort((a, b) => sortByLastName(a, b));
+    document.querySelector(".student-template-wrap").replaceChildren();
+    studentsorting.forEach(showStudent);
+    sortingBy = "lastname:asc";
+  }
+};

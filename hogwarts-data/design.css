@@ -206,7 +206,8 @@ p {
   height: auto;
 }
 
-.modal-student-name {
+.modal-student-firstname,
+.modal-student-lastname {
   color: black;
   font-size: 25px;
   margin: 0;
@@ -275,4 +276,8 @@ p {
   border-radius: 5px;
   background-color: #3c6104;
   color: white;
+}
+
+.popuphidden {
+  display: none;
 }
