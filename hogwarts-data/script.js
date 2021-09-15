@@ -188,6 +188,18 @@ document.querySelector(".filter-slytherin").onclick = () => {
   );
   document.querySelector(".student-template-wrap").replaceChildren();
   newstudents.forEach(showStudent);
+
+  document
+    .querySelector(".filter-ravenclaw")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-gryffindor")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-hufflepuff")
+    .classList.remove("active-category");
+  document.querySelector(".filter-all").classList.remove("active-category");
+  document.querySelector(".filter-slytherin").classList.add("active-category");
 };
 
 document.querySelector(".filter-hufflepuff").onclick = () => {
@@ -196,6 +208,18 @@ document.querySelector(".filter-hufflepuff").onclick = () => {
   );
   document.querySelector(".student-template-wrap").replaceChildren();
   newstudents.forEach(showStudent);
+
+  document.querySelector(".filter-all").classList.remove("active-category");
+  document
+    .querySelector(".filter-slytherin")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-ravenclaw")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-gryffindor")
+    .classList.remove("active-category");
+  document.querySelector(".filter-hufflepuff").classList.add("active-category");
 };
 
 document.querySelector(".filter-ravenclaw").onclick = () => {
@@ -204,6 +228,18 @@ document.querySelector(".filter-ravenclaw").onclick = () => {
   );
   document.querySelector(".student-template-wrap").replaceChildren();
   newstudents.forEach(showStudent);
+
+  document.querySelector(".filter-all").classList.remove("active-category");
+  document
+    .querySelector(".filter-slytherin")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-gryffindor")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-hufflepuff")
+    .classList.remove("active-category");
+  document.querySelector(".filter-ravenclaw").classList.add("active-category");
 };
 
 document.querySelector(".filter-gryffindor").onclick = () => {
@@ -212,11 +248,36 @@ document.querySelector(".filter-gryffindor").onclick = () => {
   );
   document.querySelector(".student-template-wrap").replaceChildren();
   newstudents.forEach(showStudent);
+
+  document
+    .querySelector(".filter-hufflepuff")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-slytherin")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-ravenclaw")
+    .classList.remove("active-category");
+  document.querySelector(".filter-all").classList.remove("active-category");
+  document.querySelector(".filter-gryffindor").classList.add("active-category");
 };
 
 document.querySelector(".filter-all").onclick = () => {
   document.querySelector(".student-template-wrap").replaceChildren();
   students.forEach(showStudent);
+  document
+    .querySelector(".filter-ravenclaw")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-hufflepuff")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-slytherin")
+    .classList.remove("active-category");
+  document
+    .querySelector(".filter-gryffindor")
+    .classList.remove("active-category");
+  document.querySelector(".filter-all").classList.add("active-category");
 };
 
 let sortingBy = null;
