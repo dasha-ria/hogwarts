@@ -167,6 +167,7 @@ function showStudent(student) {
   copy.querySelector(".student-firstname").innerText = student.firstname;
   copy.querySelector(".student-lastname").innerText = student.lastname;
   copy.querySelector(".student-house").innerText = student.house;
+  copy.querySelector(".student-pic").src = `images/${student.image}`;
 
   copy.querySelector(".student-box").onclick = () => {
     document.querySelector(".modal-wrap").classList.remove("popuphidden");
@@ -174,6 +175,13 @@ function showStudent(student) {
       student.firstname;
     document.querySelector(".modal-student-lastname").innerText =
       student.lastname;
+    document.querySelector(".modal-house").innerText = student.house;
+    document.querySelector(
+      ".modal-student-pic"
+    ).src = `images/${student.image}`;
+    document.querySelector(
+      ".house-crest"
+    ).src = `student-house-img/${student.house}.svg`;
   };
   document.querySelector(".close-button").onclick = () => {
     document.querySelector(".modal-wrap").classList.add("popuphidden");

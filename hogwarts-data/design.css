@@ -82,6 +82,14 @@ p {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
+.student-box:hover,
+.category,
+.first-name-sort,
+.last-name-sort,
+.house-sort {
+  cursor: pointer;
+}
+
 .student-pic {
   width: 40px;
   height: 40px;
@@ -213,7 +221,7 @@ p {
   position: relative;
 }
 
-.pic-name-wrap {
+.modal-pic-name-wrap {
   display: flex;
   align-items: center;
   gap: 2vw;
@@ -231,6 +239,12 @@ p {
   color: black;
   font-size: 25px;
   margin: 0;
+}
+
+.name-wrap-modal {
+  display: flex;
+  gap: 1vw;
+  width: 250px;
 }
 
 .modal-info {
@@ -251,7 +265,7 @@ p {
 
 .leftinfo-crestright {
   display: flex;
-  gap: 12vw;
+  gap: 8vw;
   align-items: center;
 }
 
