@@ -86,7 +86,8 @@ p {
 .category,
 .first-name-sort,
 .last-name-sort,
-.house-sort {
+.house-sort,
+.close-button {
   cursor: pointer;
 }
 
