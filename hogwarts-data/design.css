@@ -56,23 +56,35 @@ p {
   gap: 2vw;
 }
 
+.student-box-wrap {
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.pic-name-div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
 .student-box {
   width: 60vw;
   height: 7vh;
   min-height: 50px;
   min-width: 500px;
+  padding-right: 50px;
   background-color: #616161;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 1vw;
   border-radius: 8px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .student-pic {
-  width: 5%;
-  height: auto;
+  width: 40px;
+  height: 40px;
   margin-left: 2vw;
 }
 
@@ -82,8 +94,16 @@ p {
   font-size: 20px;
 }
 
+.student-firstname {
+  width: 100px;
+}
+
+.student-lastname {
+  width: 150px;
+}
+
 .student-house {
-  margin-left: 30vw;
+  margin-left: 25vw;
 }
 
 .student-category-list {
@@ -159,11 +179,11 @@ p {
 }
 
 .first-name-sort {
-  margin-left: 1vw;
+  margin-left: 2vw;
 }
 
 .last-name-sort {
-  margin-left: 1vw;
+  margin-left: 4vw;
 }
 
 .house-sort {
@@ -280,4 +300,8 @@ p {
 
 .popuphidden {
   display: none;
+}
+
+footer {
+  margin-top: 50px;
 }
