@@ -190,6 +190,25 @@ function showStudent(student) {
   document.querySelector(".student-template-wrap").appendChild(copy);
 }
 
+document.querySelector(".expel-button").onclick = () => {
+  document
+    .querySelector(".expel-button")
+    .classList.add("student-expelled-modal-button");
+  document
+    .querySelector(".prefect-button")
+    .classList.add("student-expelled-modal-button");
+  document
+    .querySelector(".inquisitorial-button")
+    .classList.add("student-expelled-modal-button");
+  document.querySelector(".student-status").innerText = `Expelled`;
+  document.querySelector(".student-box").classList.add("student-expelled-box");
+};
+
+document.querySelector(".prefect-button").onclick = () => {
+  document.querySelector(".prefect-button").innerText = `Remove Prefect`;
+  document.querySelector(".prefect-status").innerText = `Yes`;
+};
+
 document.querySelector(".filter-slytherin").onclick = () => {
   const newstudents = students.filter((student) =>
     filterByHouse(student, "Slytherin")
