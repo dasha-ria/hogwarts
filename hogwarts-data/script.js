@@ -1,4 +1,5 @@
 let students = [];
+let selectedStudent = null;
 
 fetch("https://petlatkea.dk/2021/hogwarts/students.json")
   .then((res) => res.json())
@@ -8,7 +9,16 @@ fetch("https://petlatkea.dk/2021/hogwarts/students.json")
       .map(trimStudents)
       .map(splitStudents)
       .map(capitalizeFix)
-      .map(associateImage);
+      .map(associateImage)
+      .map((student, index) => {
+        return {
+          ...student,
+          id: index,
+          studentStatus: "Active",
+          prefectStatus: "No",
+          squadStatus: "No",
+        };
+      });
     // .map(console.log);
   })
   .then((allstudents) => {
@@ -164,24 +174,51 @@ function sortByLastName(a, b) {
 function showStudent(student) {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
+  copy.querySelector(".student-box").id = student.id;
   copy.querySelector(".student-firstname").innerText = student.firstname;
   copy.querySelector(".student-lastname").innerText = student.lastname;
   copy.querySelector(".student-house").innerText = student.house;
   copy.querySelector(".student-pic").src = `images/${student.image}`;
 
   copy.querySelector(".student-box").onclick = () => {
+    selectedStudent = student;
     document.querySelector(".modal-wrap").classList.remove("popuphidden");
     document.querySelector(".modal-student-firstname").innerText =
       student.firstname;
     document.querySelector(".modal-student-lastname").innerText =
       student.lastname;
     document.querySelector(".modal-house").innerText = student.house;
+    document.querySelector(".student-status").innerText = student.studentStatus;
     document.querySelector(
       ".modal-student-pic"
     ).src = `images/${student.image}`;
     document.querySelector(
       ".house-crest"
     ).src = `student-house-img/${student.house}.svg`;
+
+    // Reset buttons
+    document
+      .querySelector(".expel-button")
+      .classList.remove("student-expelled-modal-button");
+    document
+      .querySelector(".prefect-button")
+      .classList.remove("student-expelled-modal-button");
+    document
+      .querySelector(".inquisitorial-button")
+      .classList.remove("student-expelled-modal-button");
+
+    // Student is expelled
+    if (selectedStudent.studentStatus === "Expelled") {
+      document
+        .querySelector(".expel-button")
+        .classList.add("student-expelled-modal-button");
+      document
+        .querySelector(".prefect-button")
+        .classList.add("student-expelled-modal-button");
+      document
+        .querySelector(".inquisitorial-button")
+        .classList.add("student-expelled-modal-button");
+    }
   };
   document.querySelector(".close-button").onclick = () => {
     document.querySelector(".modal-wrap").classList.add("popuphidden");
@@ -191,6 +228,10 @@ function showStudent(student) {
 }
 
 document.querySelector(".expel-button").onclick = () => {
+  if (selectedStudent != null) {
+    students[selectedStudent.id].studentStatus = "Expelled";
+  }
+
   document
     .querySelector(".expel-button")
     .classList.add("student-expelled-modal-button");
@@ -201,13 +242,15 @@ document.querySelector(".expel-button").onclick = () => {
     .querySelector(".inquisitorial-button")
     .classList.add("student-expelled-modal-button");
   document.querySelector(".student-status").innerText = `Expelled`;
-  document.querySelector(".student-box").classList.add("student-expelled-box");
+  document
+    .getElementById(selectedStudent.id)
+    .classList.add("student-expelled-box");
 };
 
-document.querySelector(".prefect-button").onclick = () => {
-  document.querySelector(".prefect-button").innerText = `Remove Prefect`;
-  document.querySelector(".prefect-status").innerText = `Yes`;
-};
+// document.querySelector(".prefect-button").onclick = () => {
+//   document.querySelector(".prefect-button").innerText = `Remove Prefect`;
+//   document.querySelector(".prefect-status").innerText = `Yes`;
+// };
 
 document.querySelector(".filter-slytherin").onclick = () => {
   const newstudents = students.filter((student) =>
